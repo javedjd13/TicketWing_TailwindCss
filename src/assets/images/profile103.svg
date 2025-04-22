@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="103" viewBox="0 0 103 103">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_19755" data-name="Rectangle 19755" width="47.233" height="53.089" fill="#c6c6c6" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_77399" data-name="Group 77399" transform="translate(-1810 -24)">
+    <g id="Group_74241" data-name="Group 74241" transform="translate(1810 24)">
+      <g id="Backgound" transform="translate(0)" fill="#fff" stroke="#fff" stroke-width="2">
+        <rect width="103" height="103" rx="51.5" stroke="none"/>
+        <rect x="1" y="1" width="101" height="101" rx="50.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_77398" data-name="Group 77398" transform="translate(1838.123 49.195)" clip-path="url(#clip-path)">
+      <path id="Path_70653" data-name="Path 70653" d="M35.563,407.867a15.822,15.822,0,0,1-23.892,0A23.6,23.6,0,0,0,0,428.243c0,13.044,47.233,13.044,47.233,0a23.6,23.6,0,0,0-11.67-20.376" transform="translate(0 -384.937)" fill="#c6c6c6" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+      <path id="Path_70654" data-name="Path 70654" d="M209.21,25.119a12.557,12.557,0,1,0-8.9-3.7,12.52,12.52,0,0,0,8.9,3.7" transform="translate(-185.596 0)" fill="#c6c6c6" stroke="rgba(0,0,0,0)" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
