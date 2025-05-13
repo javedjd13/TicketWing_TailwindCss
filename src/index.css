@@ -9,6 +9,7 @@
 }
 
 :root {
+  --gradient: transparent linear-gradient(180deg, #150229 0%, #270820 100%);
   /* Colors */
   --primary-color: #4f46e5;
   --secondary-color: #6d28d9;
@@ -52,6 +53,9 @@
   --breakpoint-xl: 1280px;
 }
 
+body {
+  background: transparent linear-gradient(180deg, #150229 0%, #270820 100%);
+}
 /* card css */
 .date-text {
   font-family: "Ageo", sans-serif;
@@ -85,3 +89,44 @@
   width: 51px;
   border-radius: 10px;
 }
+
+/* In your global CSS (e.g., index.css or styles.css) */
+.bg-custom-gradient {
+  background: linear-gradient(180deg, #150229 0%, #270820 100%);
+}
+
+/* Add any additional global styles here */
+.bg-blur {
+  backdrop-filter: blur(11px);
+}
+
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+/* HomeEvent Component Filters */
+.selected {
+  background-color: #b91cdb !important; /* pink */
+  color: white !important;
+}
+.unselected {
+  background-color: #2f2540 !important; /* dark purple */
+  color: #d1d5db !important; /* gray-300 */
+}
+
+/* Hide Scroll bar in Filters Button */
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 320px) {
+  .card-main {
+    width: 143px !important;
+  }
+}
+
+/* @media (max-width: 375px) {
+  .card-main {
+    width: 10.75rem !important;
+  }
+} */

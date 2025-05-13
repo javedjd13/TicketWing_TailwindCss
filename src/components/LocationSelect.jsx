@@ -25,40 +25,40 @@ const LocationSelect = ({ toggleLocationSelect }) => {
   return (
     <>
       <div
-        class="fixed inset-0 flex items-center justify-center bg-black z-20 bg-opacity-75"
+        className="fixed inset-0 flex items-center justify-center bg-[#00000080] z-20 bg-opacity-100 bg-blur fade"
         onClick={handleCloseModal}
       >
         <div
-          class="bg-white text-black p-8 rounded-lg relative  max-h-[21.9375rem] max-w-[24.125rem]"
+          className="bg-[#000] text-white  p-8 rounded-lg relative  max-h-[21.9375rem] max-w-[24.125rem]"
           onClick={handleModalClick}
         >
-          <button class="absolute top-2 right-2 text-gray-500">
+          <button className="absolute top-2 right-2 text-gray-500">
             <FontAwesomeIcon icon={faTimes} onClick={toggleLocationSelect} />
           </button>
-          <h3 class="text-xl mb-4">Select Location</h3>
+          <h3 className="text-xl mb-4 ">Select Location</h3>
           <input
             type="text"
             placeholder="Search your city"
-            class="p-2 w-full mb-4 border rounded-full border-none"
+            className="p-2 w-full mb-4 border rounded-full border-none bg-[#fafafa20] border-[#ffffff25]"
           />
-          <div class="mb-4 text-[#BC1EB5] cursor-pointer" >
+          <div className="mb-4 text-[#BC1EB5] cursor-pointer" >
             <FontAwesomeIcon
               className="mr-2"
               icon={faMapMarkerAlt}
             />
-            <span class="ml-2 text-sm">User Current Location</span>
-            <span class="ml-2 text-gray-500 text-xs">Nagpur</span>
+            <span className="ml-2 text-sm">User Current Location</span>
+            <span className="ml-2 text-[#ffb606] text-xs">Nagpur</span>
           </div>
-          <h1 class="mb-2 text-sm text-[#0F0636] ">Top Cities</h1>
-          <div class="flex flex-wrap gap-2">
-            {cities.map((city) => (
+          <h1 className="mb-2 text-sm text-[white] ">Top Cities</h1>
+          <div className="flex flex-wrap gap-2">
+            {cities.map((city,id) => (
               <button
-                className={`text-xs px-3 py-1 rounded-full border ${
-                  selectedCity === city
-                    ? "bg-[#0d0331] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                className={`text-xs px-3 py-2  border 10px 20px rounded-3xl ${selectedCity === city
+                    ? "bg-[#ffb606] text-white"
+                    : " text-white"
+                  }`}
                 onClick={() => setSelectedCity(city)}
+                key={id}
               >
                 {city}
               </button>

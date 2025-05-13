@@ -1,63 +1,73 @@
-// import React from "react";
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux"; // <-- Redux se search query lane ke liye
+import { useSelector } from "react-redux";
 
-const url = import.meta.env.VITE_DUMMY_API_URL;
+const fetchEventData = async () => {
+  const options = {
+    method: "GET",
+    url: "https://concerts-artists-events-tracker.p.rapidapi.com/festival/infos",
+    params: {
+      festival_id: "157318",
+    },
+    headers: {
+      "x-rapidapi-key": "170610589emsh8680418db611776p13053djsn15705f5f5cfb",
+      "x-rapidapi-host": "concerts-artists-events-tracker.p.rapidapi.com",
+    },
+  };
 
-// API call function
-const fetchProducts = async (query) => {
-  const endpoint = query
-    ? `${url}/products/search?q=${query}`
-    : `${url}/products`;
-  const res = await axios.get(endpoint);
-  console.log(res.data, "products data");
-  return res.data.products;
+  const response = await axios.request(options);
+  return response.data; // 👈 check what structure it returns!
 };
 
 const DummyData = () => {
-  const searchQuery = useSelector((state) => state.search.query); // <-- Redux se query mil rahi
+  const searchQuery = useSelector((state) => state.search?.query || "");
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["products", searchQuery], // <-- queryKey me query bhi daala
-    queryFn: () => fetchProducts(searchQuery), // <-- query ke according fetch
+    queryKey: ["eventData"], // 👈 Only fetch based on ID for now
+    queryFn: fetchEventData,
   });
 
-  if (isLoading) return <p>Loading products...</p>;
+  console.log(data); // 👈 Use this to inspect the API response structure
+
+  if (isLoading) return <p>Loading events...</p>;
   if (isError) return <p>Error: {error.message}</p>;
+
+  // 🛠 Adjust according to actual structure of `data`
+  const festivals = data?.data ? [data.data] : []; // safe array for map
 
   return (
     <div>
-      <h2 className="text-center">Products</h2>
+      <h2 className="text-center">Festival Info</h2>
       <ul className="flex flex-wrap gap-4 justify-center items-center mt-4">
-        {data.map((products) => (
+        {festivals.map((festival) => (
           <div
             className="bg-[#EFF0EF] rounded-lg overflow-hidden card-main w-[13.75rem] h-[24.6875rem] shadow-md border-2 border-white"
-            key={products.id}
+            key={festival.id || festival.name}
           >
-            <Link to={`/products/${products.id}`} className="w-full h-full">
+            <a to="#" className="w-full h-full">
               <div className="relative">
                 <img
-                  src={products.thumbnail}
-                  alt="Event poster"
-                  className="w-full object-cover h-80 rounded-lg opacity-[100%]"
+                  src={festival.banner_image}
+                  alt="Festival Banner"
+                  className="w-full object-cover h-80 rounded-lg"
                 />
                 <div className="absolute bottom-0 right-0 mb-2 bg-white text-center p-2 card-date-box">
-                  <div className="date-text text-[Ageo-Bold] ">{"29"}</div>
-                  <div className="month-text text-[Ageo-bold]">{"Aug"}</div>
-                  <div className="time-text text-[Ageo-Semibold]">{"8 pm"}</div>
+                  <div className="date-text">{"29"}</div>
+                  <div className="month-text">{"Aug"}</div>
+                  <div className="time-text">{"8 pm"}</div>
                 </div>
               </div>
               <div className="h-[74px]">
-                <h2 className="text-[#0F0636] text-base font-bold text-[Ageo-Bold] mb-2 leading-[21px] text-left">
-                  {products.title}
+                <h2 className="text-[#0F0636] text-base font-bold mb-2 leading-[21px] text-left">
+                  {festival.name}
                 </h2>
                 <p className="text-[#BC1EB5] text-xs font-semibold leading-[13px] text-left">
-                  ₹ {products.price} Onwards
+                  {festival.location || "Location Not Available"}
                 </p>
               </div>
-            </Link>
+            </a>
           </div>
         ))}
       </ul>
