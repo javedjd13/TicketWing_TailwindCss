@@ -6,8 +6,7 @@ const Home = () => {
   return (
     <>
       <HeroBox />
-      <HomeEvent />
-    </>
+      <HomeEvent />    </>
   );
 };
 

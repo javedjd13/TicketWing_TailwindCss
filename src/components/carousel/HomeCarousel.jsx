@@ -8,43 +8,31 @@ import { Navigation } from "swiper/modules";
 import "./HomeCarousel.css";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import Loader from "../Loader";
-import { get_carousel_list } from "../../services/Api";
+import { fetchProducts } from "../../services/Api";
 import Card from "../Card";
-// import 'swiper/swiper-bundle.min.css';
-// import 'swiper/swiper.min.css';
-// import { get_carousel_list } from "../../redux/features/EventService";
+import { eventsData } from "../../lib/Constant";
 
 function HomeCarousel() {
-  // const { user_token } = useSelector((state) => state.authentication);
-  // const navigate = useNavigate();
+  // const {
+  //   data: carouselList,
+  //   error,
+  //   isLoading,
+  //   isError,
+  // } = useQuery({
+  //   queryKey: ["carouselEventData"],
+  //   queryFn: fetchProducts,
+  //   placeholderData: keepPreviousData,
+  // });
 
-  const {
-    data: carouselList,
-    error,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["carouselEventData"],
-    queryFn: get_carousel_list,
-    placeholderData: keepPreviousData,
-  });
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isError) {
+  //   return <div>Error: {error.message}</div>;
+  // }
 
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  // const handleCardClick = (eventId) => {
-  //   if (user_token) {
-  //     navigate(`/events_details_login/${eventId}`);
-  //   } else {
-  //     navigate(`/eventsdetails/${eventId}`);
-  //   }
-  // };
-  console.log("carouselList", carouselList);
+  // console.log("carouselList", carouselList);
 
   return (
     <Swiper
@@ -68,10 +56,10 @@ function HomeCarousel() {
       modules={[Navigation]}
       className="events"
     >
-      {carouselList.map((event) => (
-        <SwiperSlide key={event.eventId || id}>
-          <div className="flex justify-center items-center flex-wrap">
-            <Card data={event} event={event.eventId} />
+      {eventsData.map((event, id) => (
+        <SwiperSlide key={id}>
+          <div className="flex justify-center items-center flex-wrap ">
+            <Card data={event} event={id} />
           </div>
         </SwiperSlide>
       ))}

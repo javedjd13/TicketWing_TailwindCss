@@ -52,11 +52,13 @@ const Modal = ({ toggleModal }) => {
                   </span>
                 </div>
                 {/* Responsive Login Text */}
-                <NavLink 
-                to="/login"
-                  className="text-[#FFB606] text-right text-[14px] sm:text-[14px] md:text-[16px] lg:text-[16px] font-medium">
+                <NavLink
+                  to="/login"
+                  onClick={() => setIsModalOpen(false)}
+                  className="text-[#FFB606] text-right text-[14px] sm:text-[14px] md:text-[16px] lg:text-[16px] font-medium"
+                >
                   Login
-                  </NavLink>
+                </NavLink>
               </div>
               {/* My Tickets section */}
               <div

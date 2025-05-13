@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Login_One = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-[#EFF2F2]">
+    <div className="flex items-center justify-center min-h-screen p-4">
       <div className="bg-[#FFFFFF] p-8 rounded-[22px] shadow-lg text-center w-full max-w-md md:w-[600px] md:h-[360px]">
         <p className="text-[#0F0636] mb-4">By Login in you are agreeing to</p>
         <div className="flex justify-center space-x-2 mb-6 text-[#FFB606]">
@@ -28,7 +28,7 @@ const Login_One = () => {
         />
         <NavLink  to="/login_two">
 
-          <button className="w-full h-[79px] bg-[#0F0636] text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
+          <button className="w-full h-[79px] bg-custom-gradient text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
             <span className="font-bold text-lg">Confirm</span>
           </button>
         </NavLink>

@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-[#EFF2F2]">
+    <div className="flex items-center justify-center min-h-screen p-4 ">
       <div className="bg-[#FFFFFF] p-8 rounded-[22px] shadow-lg text-center w-full max-w-md md:w-[600px] md:h-[425px]">
         <p className="text-[#0F0636] mb-4">By Login in you are agreeing to</p>
         <div className="flex justify-center space-x-2 mb-6 text-[#FFB606]">
@@ -18,20 +18,19 @@ const Login = () => {
             Privacy Policy
           </a>
         </div>
-        <NavLink  to="/login_one">
-
-          <button className="w-full h-[79px] bg-[#0F0636] text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
+        <NavLink to="/login_one">
+          <button className="w-full h-[79px] bg-custom-gradient text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
             <img src={mobileLogo} alt="mobile" className="mr-2" />
             Login with
             <span className="font-bold ml-1">Mobile Number</span>
           </button>
         </NavLink>
-        <button className="w-full h-[79px] bg-[#EA4335] text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
+        <button className="w-full h-[79px] bg-custom-gradient text-white py-2 px-4 rounded-[40px] mb-4 flex items-center justify-center">
           <img src={googleLogo} alt="google" className="mr-2" />
           Login with
           <span className="font-bold ml-1">Google</span>
         </button>
-        <button className="w-full h-[79px] bg-[#3C5A99] text-white py-2 px-4 rounded-[40px] flex items-center justify-center">
+        <button className="w-full h-[79px] text-white py-2 px-4 rounded-[40px] flex items-center justify-center bg-custom-gradient">
           <img src={faceBookLogo} alt="facebook" className="mr-2" />
           Login with
           <span className="font-bold ml-1">Facebook</span>

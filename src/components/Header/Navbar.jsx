@@ -5,7 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Logo from "../../assets/images/TicketWings-Light.svg";
+// import Logo from "../../assets/images/TicketWings-Light.svg";
+import Logo from "../../assets/images/TicketWings-Light.svg"; // Importing the logo image
 import MobLogo from "../../assets/images/mob-logo.png";
 import Model from "../Model";
 import LocationSelect from "../LocationSelect";
@@ -36,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-[#0F0636] text-white p-3">
+      <header className=" text-white p-3">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-4 mb-2 md:mb-0">
             {/* Desktop Logo */}
@@ -87,18 +88,22 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search event name, artist or location"
-              className="w-full p-2 rounded-full text-black xl:w-[21.5625rem] lg:w-[20rem]"
+              className="w-full p-2 rounded-full text-[#ffff] xl:w-[21.5625rem] lg:w-[20rem] bg-[#fafafa40]
+              border-[#dddddd20] focus:shadow-[0_0_0_0.25rem_#bc1eb55c] outline-none"
               onChange={handleSearch}
             />
           </div>
           <nav className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-base lg:text-lg">
+            <a href="#" className="text-base hover:text-[#ffb606] lg:text-lg">
               About Us
             </a>
-            <a href="#" className="text-base lg:text-lg">
+            <a href="#" className="text-base hover:text-[#ffb606] lg:text-lg">
               Partners
             </a>
-            <NavLink to={"login"} className={"text-base lg:text-lg"}>
+            <NavLink
+              to={"login"}
+              className={"text-base hover:text-[#ffb606] lg:text-lg"}
+            >
               Login / Signup
             </NavLink>
             <FontAwesomeIcon
